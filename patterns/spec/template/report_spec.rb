@@ -5,11 +5,11 @@ module Template
     let(:report) { Report.new }
 
     it "has a title" do
-      expect(report.output).to include('title')
+      expect(report.output).to receive(:puts).with('title')
     end
 
     it "has some content" do
-      expect(report.output).to include('body')
+      expect(report.output).to receive(:puts).with('body')
     end
   end
 end

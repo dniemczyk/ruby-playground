@@ -10,6 +10,11 @@ class Report
     @output.puts '  <head>'
     @output.puts "    <title> #{@title} </title>"
     @output.puts '  </head>'
+    @output.puts '  <body>'
+    @text.each do |line|
+      @output.puts "  <p>#{line}</p>"
+    end
+    @output.puts '  </body>'
     @output.puts '</html>'
   end
 end

@@ -2,17 +2,15 @@ require 'spec_helper'
 
 module Template
   describe Report do
-    let(:output) { double('output').as_null_object }
-    let(:report) { Report.new(output) }
+    let(:report) { Report.new }
+    let(:output) { report.output_report }
 
-    it "has a title" do
-      expect(output).to receive(:puts).with(/<title>/)
-      report.output_report
+    it "prints a title" do
+      expect { output.to output(/<title>/).to_stdout }
     end
 
-    it "has some content" do
-      expect(output).to receive(:puts).with(/<p>/)
-      report.output_report
+    it "prints some content" do
+      expect { output.to output(/<p>/).to_stdout }
     end
   end
 end
